@@ -113,19 +113,37 @@ namespace LinqExercise
             Console.WriteLine($"{employeesOver35.Average(x => x.YearsOfExperience):F2}");
 
             //TODO: Add an employee to the end of the list without using employees.Add()
-            Employee frodo = new Employee()
+            Console.WriteLine("\n" +
+                              "And lastly, we have some exciting news.\n" +
+                              "We just got an epic new employee.\n" +
+                              "His experiences are as vast as the distant lands he has traversed.\n" +
+                              "See if you can spot who it is,\n" +
+                              "in the updated list below:");
+
+            employees = employees.Append(new Employee("Frodo", "Baggins", 50, 7)).ToList();
+            // var frodo = new Employee("Frodo", "Baggins", 50, 7);
+            // employees = employees.Append(frodo).ToList();
+            
+            foreach (var person in employees)
+            {
+                Console.WriteLine($"{person.FullName} {person.Age}");
+            }
+
+            //Note to self: original code for last step below, improved code above:
+            /*Employee frodo = new Employee()
             {
                 Age = 50,
                 FirstName = "Frodo",
                 LastName = "Baggins",
                 YearsOfExperience = 7,
             };
-            employees.Insert(10, frodo);
+            employees.Insert(10, frodo);                                                                            //Note to self, source: https://www.c-sharpcorner.com/UploadFile/mahesh/insert-item-into-a-C-Sharp-list/
+            foreach (var employeeItem in employees)
+            {
+                Console.WriteLine($"{employeeItem.FullName} {employeeItem.Age}");
+            }
 
-
-            Console.WriteLine();
-
-            Console.ReadLine();
+            Console.ReadLine();*/
         }
 
         #region CreateEmployeesMethod
